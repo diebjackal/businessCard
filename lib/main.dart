@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:business_card/utlilty/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -41,29 +41,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 radius: 70.0,
                 backgroundImage: AssetImage('assets/UserPhoto.png'),
               ),
-              Text(
-                "이상윤",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Text(
-                "flutter 개발자",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
+              Text("이상윤", style: nameTextStyle),
+              Text("flutter 개발자", style: jobTextStyle),
               Container(
                 margin: EdgeInsets.only(bottom: 10),
                 height: 70,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
-                ),
+                decoration: informationContainerDecoration(),
                 child: Row(
                   children: [
                     Padding(
@@ -80,10 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 margin: EdgeInsets.only(bottom: 10),
                 height: 70,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
-                ),
+                decoration: informationContainerDecoration(),
                 child: Row(
                   children: [
                     Padding(
@@ -100,10 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 margin: EdgeInsets.only(bottom: 10),
                 height: 70,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
-                ),
+                decoration: informationContainerDecoration(),
                 child: Row(
                   children: [
                     Padding(
@@ -111,8 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: FaIcon(FontAwesomeIcons.github, size: 30),
                     ),
                     Text(
-                      "https://github.com/diebjackal",
-                      style: TextStyle(fontSize: 18),
+                      "github.com/diebjackal",
+                      style: TextStyle(fontSize: 20),
                     ),
                   ],
                 ),
