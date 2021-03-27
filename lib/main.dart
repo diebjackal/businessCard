@@ -1,8 +1,7 @@
+import 'package:business_card/component/imformation.dart';
 import 'package:business_card/utlilty/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,24 +26,6 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-List<IconData> iconLIst = [
-  Icons.email,
-  Icons.phone,
-  FontAwesomeIcons.github,
-];
-
-List<String> imformationTextList = [
-  "diebjackal@naver.com",
-  "+82 010-2995-7185",
-  "github.com/diebjackal"
-];
-
-List<String> launchList = [
-  'mailto:diebjackal@naver.com',
-  'tel://01029957185',
-  "https://github.com/diebjackal"
-];
-
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
@@ -52,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.teal,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -67,38 +48,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ImformationContainer(index: 2),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class ImformationContainer extends StatelessWidget {
-  ImformationContainer({@required this.index});
-
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      child: FlatButton(
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25),
-        ),
-        onPressed: () => launch(launchList[index]),
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: FaIcon(iconLIst[index], size: 30),
-            ),
-            Text(
-              imformationTextList[index],
-              style: imformationTextStyle,
-            ),
-          ],
         ),
       ),
     );
