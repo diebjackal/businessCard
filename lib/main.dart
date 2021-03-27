@@ -41,8 +41,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 radius: 70.0,
                 backgroundImage: AssetImage('assets/UserPhoto.png'),
               ),
-              Text("이상윤", style: nameTextStyle),
+              Container(
+                margin: const EdgeInsets.all(5),
+                child: Text("이상윤", style: nameTextStyle),
+              ),
               Text("flutter 개발자", style: jobTextStyle),
+              SizedBox(height: 10),
               ImformationContainer(index: 0),
               ImformationContainer(index: 1),
               ImformationContainer(index: 2),
