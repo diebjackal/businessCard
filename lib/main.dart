@@ -2,6 +2,7 @@ import 'package:business_card/utlilty/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,6 +37,12 @@ List<String> imformationTextList = [
   "diebjackal@naver.com",
   "+82 010-2995-7185",
   "github.com/diebjackal"
+];
+
+List<String> launchList = [
+  'mailto:diebjackal@naver.com',
+  'tel://01029957185',
+  "https://github.com/diebjackal"
 ];
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -75,19 +82,24 @@ class ImformationContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
-      height: 70,
-      decoration: informationContainerDecoration(),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: FaIcon(iconLIst[index], size: 30),
-          ),
-          Text(
-            imformationTextList[index],
-            style: imformationTextStyle,
-          ),
-        ],
+      child: FlatButton(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25),
+        ),
+        onPressed: () => launch(launchList[index]),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: FaIcon(iconLIst[index], size: 30),
+            ),
+            Text(
+              imformationTextList[index],
+              style: imformationTextStyle,
+            ),
+          ],
+        ),
       ),
     );
   }
