@@ -12,6 +12,7 @@ const jobTextStyle = TextStyle(
   color: Colors.white,
 );
 
+const imformationTextStyle = TextStyle(fontSize: 20);
 // Container decoration
 Decoration informationContainerDecoration() {
   return BoxDecoration(

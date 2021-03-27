@@ -26,6 +26,18 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+List<IconData> iconLIst = [
+  Icons.email,
+  Icons.phone,
+  FontAwesomeIcons.github,
+];
+
+List<String> imformationTextList = [
+  "diebjackal@naver.com",
+  "+82 010-2995-7185",
+  "github.com/diebjackal"
+];
+
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
@@ -43,60 +55,39 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Text("이상윤", style: nameTextStyle),
               Text("flutter 개발자", style: jobTextStyle),
-              Container(
-                margin: EdgeInsets.only(bottom: 10),
-                height: 70,
-                decoration: informationContainerDecoration(),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(20),
-                      child: Icon(Icons.email, size: 30),
-                    ),
-                    Text(
-                      "diebjackal@naver.com",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 10),
-                height: 70,
-                decoration: informationContainerDecoration(),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(20),
-                      child: Icon(Icons.phone, size: 30),
-                    ),
-                    Text(
-                      "+82 010-2995-7185",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 10),
-                height: 70,
-                decoration: informationContainerDecoration(),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(20),
-                      child: FaIcon(FontAwesomeIcons.github, size: 30),
-                    ),
-                    Text(
-                      "github.com/diebjackal",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
+              ImformationContainer(index: 0),
+              ImformationContainer(index: 1),
+              ImformationContainer(index: 2),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ImformationContainer extends StatelessWidget {
+  ImformationContainer({@required this.index});
+
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      height: 70,
+      decoration: informationContainerDecoration(),
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: FaIcon(iconLIst[index], size: 30),
+          ),
+          Text(
+            imformationTextList[index],
+            style: imformationTextStyle,
+          ),
+        ],
       ),
     );
   }
